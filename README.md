@@ -22,7 +22,7 @@ banco-api-tests/
     postTransferencias.json
   helpers/
     autenticacao.js      # helper para obter token via /login
-  mochawesome-report/    # saída/relatórios gerados pelo mochawesome
+  mochawesome-report/    # gerada localmente ao executar npm test
     mochawesome.html
     mochawesome.json
     assets/              # css/js para o relatório
@@ -36,7 +36,7 @@ Arquivos principais:
 - `test/*.test.js` — suítes de teste (Mocha).
 - `fixtures/*.json` — cargas de exemplo (payloads) usadas nos testes.
 - `helpers/autenticacao.js` — utilitário que realiza login (POST /login) usando `process.env.BASE_URL`.
-- `mochawesome-report/` — pasta de relatório gerada pelo reporter (já contém um relatório de exemplo no repositório).
+- `mochawesome-report/` — pasta de relatórios gerada pelo reporter ao executar `npm test`.
 
 ## Formato do arquivo `.env`
 Os testes usam apenas a variável `BASE_URL` (carregada via `dotenv`). Crie um arquivo `.env` na raiz do projeto `banco-api-tests` com o seguinte conteúdo:
@@ -50,11 +50,10 @@ Observações:
 - Ajuste a URL (host/porta) para apontar para sua instância da `banco-api` (por exemplo quando estiver rodando localmente ou em um container).
 
 ## Comandos úteis
-Abra um terminal (bash) e navegue até a pasta `banco-api-tests`.
-
-Instalar dependências:
-```bash
-cd "d:/Mentoria 2.0/projetos-praticos/banco/banco-api-tests"
+Clone o repositório e instale as dependências:
+```sh
+git clone https://github.com/HevertonL/banco-api-tests.git
+cd banco-api-tests
 npm install
 ```
 
@@ -93,10 +92,3 @@ explorer.exe "mochawesome-report/mochawesome.html"
 
 ## Notas finais
 - Este README está pensado para o repositório `banco-api-tests` (apenas a suíte de testes). Para rodar os testes com sucesso, a API alvo (`banco-api`) deve estar disponível em `BASE_URL`.
-- Se desejar, posso: 
-  - adicionar um script `npm run report:open` para abrir automaticamente o relatório;
-  - incluir exemplos de `.env.example` e adicioná-lo ao repositório;
-  - adaptar os testes para suportar múltiplos ambientes (ex.: CI).
-
----
-Gerado automaticamente para o projeto de testes `banco-api-tests`. Ajuste credenciais e `BASE_URL` conforme seu ambiente de execução.
